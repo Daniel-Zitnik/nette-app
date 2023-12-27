@@ -16,11 +16,11 @@ final class HomePresenter extends Nette\Application\UI\Presenter
 
 	}
 
-    // public function renderDefault(): void
-    // {
-    //     $this->template->posts = $this->database
-    //         ->table('posts')
-    //         ->order('created_at DESC')
-    //         ->limit(5);
-    // }
+    public function renderDefault(): void
+    {
+        $this->template->posts = $this->database
+            ->table('posts')
+            ->order('created_at DESC')
+            ->limit(5);
+    }
 }

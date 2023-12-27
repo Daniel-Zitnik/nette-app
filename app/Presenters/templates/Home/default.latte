@@ -1,3 +1,11 @@
 {block content}
-    <h1>Nette block</h1>
+    <h1>Můj blog</h1>
+
+	<div n:foreach="$posts as $post" class="post">
+		<div class="date">{$post->created_at|date:'F j, Y'}</div>
+
+		<h2>{$post->title}</h2>
+
+		<div>{$post->content|truncate:256}</div>
+	</div>
 {/block}
