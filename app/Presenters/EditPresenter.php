@@ -11,6 +11,16 @@ final class EditPresenter extends Nette\Application\UI\Presenter
 	) {
 	}
 
+    public function startup(): void
+    {
+        parent::startup();
+
+        if (!$this->getUser()->isLoggedIn()) {
+            $this->redirect('Sign:in');
+        }
+    }
+
+
     protected function createComponentPostForm(): Form
     {
         $form = new Form;
@@ -26,24 +36,24 @@ final class EditPresenter extends Nette\Application\UI\Presenter
     }
 
     private function postFormSucceeded(array $data): void
-{
-	$postId = $this->getParameter('postId');
+    {
+        $postId = $this->getParameter('postId');
 
-	if ($postId) {
-		$post = $this->database
-			->table('posts')
-			->get($postId);
-		$post->update($data);
+        if ($postId) {
+            $post = $this->database
+                ->table('posts')
+                ->get($postId);
+            $post->update($data);
 
-	} else {
-		$post = $this->database
-			->table('posts')
-			->insert($data);
-	}
+        } else {
+            $post = $this->database
+                ->table('posts')
+                ->insert($data);
+        }
 
-	$this->flashMessage('Příspěvek byl úspěšně publikován.', 'success');
-	$this->redirect('Post:show', $post->id);
-}
+        $this->flashMessage('Příspěvek byl úspěšně publikován.', 'success');
+        $this->redirect('Post:show', $post->id);
+    }
 
     public function renderEdit(int $postId): void
     {

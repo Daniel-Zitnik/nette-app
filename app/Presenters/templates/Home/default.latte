@@ -1,5 +1,5 @@
 {block content}
-	<a n:href="Edit:create">Napsat nový příspěvek</a>
+	<a n:href="Edit:create" n:if="$user->isLoggedIn()">Vytvořit příspěvek</a>
 
     <h1>Můj blog</h1>
 
