@@ -3,7 +3,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<link rel="stylesheet" href="{$basePath}/css/style.css">
+	{block css}
+		<link rel="stylesheet" href="{$basePath}/css/style.css">
+	{/block}
 
 	<title>{ifset title}{include title|stripHtml} | {/ifset}Nette Web</title>
 </head>
@@ -11,19 +13,27 @@
 <body>
 	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
-	<ul class="navig">
-		<li><a n:href="Home:">Články</a></li>
-		{if $user->isLoggedIn()}
-			<li><a n:href="Sign:out">Odhlásit</a></li>
-		{else}
-			<li><a n:href="Sign:in">Přihlásit</a></li>
-		{/if}
-	</ul>
+	<header>
+		<ul class="navig">
+			<li>
+				<a n:href="Home:" class="left">Články</a>
+				<a n:href="Edit:create" n:if="$user->isLoggedIn()" class="left">Vytvořit příspěvek</a>
+			</li>
+			
+			{if $user->isLoggedIn()}
+				<li><a n:href="Sign:out" class="right">Odhlásit</a></li>
+			{else}
+				<li><a n:href="Sign:in" class="right">Přihlásit</a></li>
+			{/if}
+		</ul>
+	</header>
 
-	{include content}
+	<main>
+		{include content}
+	</main>
 
 	{block scripts}
-	<script src="https://unpkg.com/nette-forms@3/src/assets/netteForms.js"></script>
+		<script src="https://unpkg.com/nette-forms@3/src/assets/netteForms.js"></script>
 	{/block}
 </body>
 </html>
