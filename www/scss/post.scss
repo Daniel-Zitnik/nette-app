@@ -1,0 +1,60 @@
+@import 'variables';
+@import 'mixins';
+
+.container {
+    padding: 30px;
+}
+
+.content {
+    margin: 0 0 15px;
+    text-align: justify;
+}
+
+.edit-post {
+    padding: 10px;
+    display: block;
+    text-align: right;
+    font-weight: bold;
+}
+
+#post a {
+    color: $color-post;
+
+    &:hover {
+        color: lighten($color-post, 7%);
+    }
+}
+
+
+.date {
+    text-align: right;
+    display: block;
+    margin-right: 10px;
+    font-size: 14px;
+    color: $color-description;
+}
+
+#comment-h2 {
+    margin-bottom: 0;
+}
+
+.comments {
+    margin-left: 10px;
+
+    p {
+        font-size: 18px;
+        margin: 15px 0 3px;
+    }
+}
+
+.comment-form {
+    margin: 20px;
+    @include form($color-text, $bg-post, 16px, 5px);
+
+    textarea {
+        width: 300px;
+        height: 100px;
+
+        
+    }
+}

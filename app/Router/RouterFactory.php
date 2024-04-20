@@ -15,7 +15,12 @@ final class RouterFactory
 	public static function createRouter(): RouteList
 	{
 		$router = new RouteList;
-		$router->addRoute('<presenter>/<action>[/<id>]', 'Home:default');
+		$router->addRoute('/nette-test/www/signin', 'Sign:in');
+		$router->addRoute('/nette-test/www/signout', 'Sign:out');
+		$router->addRoute('/nette-test/www/post/edit/<id=>', 'Edit:edit');
+		$router->addRoute('/nette-test/www/post/create', 'Edit:create');
+		$router->addRoute('/nette-test/www/post/<id=>', 'Post:show');
+		$router->addRoute('/nette-test/www/', 'Home:default');
 		return $router;
 	}
 }

@@ -1,0 +1,22 @@
+$bg-home: #FFFD92;
+$bg-post: #DAFFF6;
+$bg-edit: #FFE2EB;
+$bg-sign: #FFE2EB;
+
+$bg-button: #e60023;
+
+$color-home: #C31952;
+$color-post: #006B6C;
+$color-edit: #C32F00;
+$color-sign: #C32F00;
+
+$color-text: #111;
+$color-description: #888;
+$color-border: #CDCDCD;
+
+$pages: (
+    home: (background: $bg-home, color: $color-home),
+    post: (background: $bg-post, color: $color-post),
+    edit: (background: $bg-edit, color: $color-edit),
+    sign: (background: $bg-sign, color: $color-sign),
+);

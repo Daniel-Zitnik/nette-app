@@ -1,0 +1,14 @@
+@import 'variables';
+@import 'mixins';
+
+.container {
+    width: auto;
+    padding: 30px;
+
+    @include form($color-sign, $bg-sign);
+
+    textarea {
+        width: 600px;
+        height: 300px;
+    }
+}

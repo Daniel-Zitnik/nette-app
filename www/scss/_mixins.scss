@@ -1,0 +1,76 @@
+@mixin form($color, $background, $size: 20px, $padding: 10px) {
+    label {
+        color: $color;
+        font-size: $size;
+    }
+
+    tr {
+        text-align: right;
+    }
+    
+    td {
+        padding: 6px;
+    }
+    
+    input {
+        background-color: #fff;
+        border-radius: 15px;
+        border-color: $color-border;
+        padding: $padding $padding * 2;
+        border-style: solid;
+        width: calc(100% - #{$padding * 4 + 4});
+    
+        &:hover {
+            border-color: darken($color-border, 12);
+        }
+        
+        &:focus {
+            outline: 4px solid $background;
+        }
+    }
+
+    textarea {
+        resize: none;
+        padding: $padding $padding * 2;
+        background-color: #fff;
+        border-radius: 15px;
+        border: $color-border solid 2px;
+        border-style: solid;
+    
+        &:hover {
+            border-color: darken($color-border, 12);
+        }
+        
+        &:focus {
+            outline: 4px solid $background;
+        }
+
+        &::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        &::-webkit-scrollbar-track {
+            margin: $padding 0;
+        }
+    }
+    
+    .button {
+        background-color: $bg-button;
+        padding: $size / 2 $size;
+        border-radius: $size / 1.5;
+        border: none;
+        font-size: $size;
+        width: auto;
+
+        @if (lightness($background) < 130) {
+            color: #fff;
+        } @else {
+            color: #000;
+        }
+    
+        &:hover {
+            background-color: darken($bg-button, 5%);
+            cursor: pointer;
+        }
+    }
+}

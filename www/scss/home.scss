@@ -1,0 +1,40 @@
+@import 'variables';
+
+h2 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.post {
+    margin: 0 20px;
+    padding: 20px;
+    border-bottom: $color-home dashed 1px;
+
+    &:last-child {
+        border-bottom: none;
+    }
+    
+    h2 {
+        margin-top: 0;
+    }
+    
+    p {
+        margin: 0;
+    }
+    
+    a {
+        color: $color-home;
+
+        &:hover {
+            color: lighten($color-home, 15%);
+        }
+    }
+}
+
+.date {
+    color: $color-description;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: right;
+    display: block;
+}

@@ -2,3 +2,5 @@ config/local.neon
 /vendor
 /temp
 /log
+/www/css
+/www/.sass-cache

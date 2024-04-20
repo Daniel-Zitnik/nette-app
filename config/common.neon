@@ -22,4 +22,4 @@ di:
 
 security:
 	users:
-		admin: secret  # user 'admin', password 'secret'
+		admin: s3cr3t  # user 'admin', password 's3cr3t'

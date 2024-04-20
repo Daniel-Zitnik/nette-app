@@ -4,14 +4,16 @@
 {/block}
 
 {block content}
-    <h1>Blog</h1>
+	<div id="home">
+		<h1>Blog</h1>
 
-	<section class="posts">
-		<div n:foreach="$posts as $post" class="post">
-			<h2><a n:href="Post:show $post->id">{$post->title}</a></h2>
+		<section class="container">
+			<div n:foreach="$posts as $post" class="post">
+				<h2><a n:href="Post:show $post->id">{$post->title}</a></h2>
 
-			<p>{$post->content|truncate:256}</p>
-			<div class="date">{$post->created_at|date:'F j, Y'}</div>
-		</div>
-	</section>
+				<p>{$post->content|truncate:256}</p>
+				<small class="date">{$post->created_at|date:'F j, Y'}</small>
+			</div>
+		</section>
+	</div>
 {/block}
