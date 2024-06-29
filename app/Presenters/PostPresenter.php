@@ -21,7 +21,7 @@ final class PostPresenter extends Nette\Application\UI\Presenter
 			->table('posts')
 			->get($postId);
 		if (!$post) {
-			$this->error('Stránka nebyla nalezena');
+			$this->error('Page not found');
 		}
 	
 		$this->template->post = $post;
@@ -32,15 +32,15 @@ final class PostPresenter extends Nette\Application\UI\Presenter
 	{
 		$form = new Form; // means Nette\Application\UI\Form
 
-		$form->addText('name', 'Jméno:')
+		$form->addText('name', 'Name:')
 			->setRequired();
 
-		$form->addEmail('email', 'E-mail:');
+		$form->addEmail('email', 'Email:');
 
-		$form->addTextArea('content', 'Komentář:')
+		$form->addTextArea('content', 'Comment:')
 			->setRequired();
 
-		$form->addSubmit('send', 'Publikovat komentář');
+		$form->addSubmit('send', 'Publish');
 
 		$form->onSuccess[] = $this->commentFormSucceeded(...);
 
@@ -58,7 +58,7 @@ final class PostPresenter extends Nette\Application\UI\Presenter
 			'content' => $data->content,
 		]);
 
-		$this->flashMessage('Děkuji za komentář', 'success');
+		$this->flashMessage('Thanks for your comment', 'success');
 		$this->redirect('this');
 	}
 }

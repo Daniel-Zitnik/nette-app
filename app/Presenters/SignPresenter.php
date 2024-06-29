@@ -14,13 +14,13 @@ final class SignPresenter extends Nette\Application\UI\Presenter
 	{
 		$form = new Form; // means Nette\Application\UI\Form
 
-		$form->addText('username', 'uživatelské jméno:')
-			->setRequired('Prosím vyplňte své uživatelské jméno.');
+		$form->addText('username', 'Username:')
+			->setRequired('Please enter your username.');
 
-		$form->addPassword('password', 'Heslo:')
-            ->setRequired('Prosím vyplňte své heslo.');
+		$form->addPassword('password', 'Password:')
+            ->setRequired('Please enter your password.');
 
-		$form->addSubmit('send', 'Přihlásit');
+		$form->addSubmit('send', 'Sign in');
 
 		$form->onSuccess[] = $this->signInFormSucceeded(...);
 
@@ -34,14 +34,14 @@ final class SignPresenter extends Nette\Application\UI\Presenter
             $this->redirect('Home:');
 
         } catch (Nette\Security\AuthenticationException $e) {
-            $form->addError('Nesprávné přihlašovací jméno nebo heslo.');
+            $form->addError('Wrong username or password.');
         }
     }
 
     public function actionOut(): void
     {
         $this->getUser()->logout();
-        $this->flashMessage('Odhlášení bylo úspěšné.');
+        $this->flashMessage('Sign out was succesful.');
         $this->redirect('Home:');
     }
 }

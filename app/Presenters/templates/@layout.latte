@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
+	<link rel="icon" type="image/png" href="{$basePath}/favicon.ico">
 	{block css}
 		<link rel="stylesheet" href="{$basePath}/css/style.css">
 	{/block}
@@ -16,14 +17,14 @@
 	<header>
 		<ul class="navig">
 			<li>
-				<a n:href="Home:" class="left">Články</a>
-				<a n:href="Edit:create" n:if="$user->isLoggedIn()" class="left">Vytvořit příspěvek</a>
+				<a n:href="Home:" class="left">Articles</a>
+				<a n:href="Edit:create" n:if="$user->isLoggedIn()" class="left">Create article</a>
 			</li>
 			
 			{if $user->isLoggedIn()}
-				<li><a n:href="Sign:out" class="right">Odhlásit</a></li>
+				<li><a n:href="Sign:out" class="right">Sign out</a></li>
 			{else}
-				<li><a n:href="Sign:in" class="right">Přihlásit</a></li>
+				<li><a n:href="Sign:in" class="right">Sign in</a></li>
 			{/if}
 		</ul>
 	</header>
